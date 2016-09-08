@@ -1,7 +1,8 @@
 img {
-    width: 200px;
+    width: 300px;
 }
 body {
     text-align: center;
-    font-family: "Arial";
+    font-family: sans-serif;
+    background-color: #08415c;
 }
