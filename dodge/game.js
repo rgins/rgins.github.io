@@ -4,6 +4,7 @@ var enemy;
 var enemyImage;
 var backgroundImage;
 var isGameOver;
+var score;
 
 function preload() {
     playerImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/N5uCbDu.png");
@@ -19,27 +20,27 @@ function setup()    {
     enemy = createSprite(width/2, 0, 0, 0);
     enemy.addImage(enemyImage);
     enemy.rotationSpeed = 4.0;
+    score = 0;
 }
 
 function draw() {
-    if(isGameOver)  {
-        gameOver();
-    }   else {
-    if(enemy.overlap(player))   {
-       isGameOver = true;
-    }
-    
     background(backgroundImage);
-    
-    if(keyDown(RIGHT_ARROW) && player.position.x < width-(playerImage.width/2)) {
-    player.position.x  +=2;
+     
+     if(enemy.overlap(player))   {
+        score++;
+        enemy.position.y = 0;
+        enemy.position.x = random(5, width-5);
+    }
+    text("Score" + score, 100,100);
+    if(keyDown(RIGHT_ARROW) && player.position.x < (width-(playerImage.width/2))) {
+    player.position.x  +=4;
     }
     
     if(keyDown(LEFT_ARROW) && player.position.x > (playerImage.width/2)) {
-    player.position.x -= 2;
+    player.position.x -= 4;
     }
     
-    enemy.position.y = enemy.position.y +3;
+    enemy.position.y = enemy.position.y +5;
     
     if(enemy.position.y > height)   {
         enemy.position.y = 0;
@@ -47,17 +48,17 @@ function draw() {
     }
     
      drawSprites();
-}
+     
 }
 
-function gameOver() {
-    background(0);
-    textAlign(CENTER);
-    fill("white";)
-    text("Game Over!", width/2, height/2);
-    text("Click anywhere to try again", width/2, 3*height/4);
-    
-}
+// function gameOver() {
+//     background(0);
+//     textAlign(CENTER);
+//     fill("white");
+//     text("Game Over!", width/2, height/2);
+//     text("Click anywhere to try again", width/2, 3*height/4);
+// }
+
 function mouseClicked() {
     if(isGameOver){
     isGameOver = false;
@@ -65,5 +66,5 @@ function mouseClicked() {
     player.position.y = height-(playerImage.height/2);
     enemy.position.x = width/2;
     enemy.position.y = 0;
-}
+    }
 }
