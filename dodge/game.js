@@ -8,6 +8,7 @@ var score;
 
 function preload() {
     playerImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/N5uCbDu.png");
+    // playerImage = loadImage("http://images.clipartpanda.com/sad-girl-stick-figure-image.png");
     enemyImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/OdL0XPt.png");
     backgroundImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/aKQOg3G.png");
 }
@@ -31,7 +32,9 @@ function draw() {
         enemy.position.y = 0;
         enemy.position.x = random(5, width-5);
     }
-    text("Score" + score, 100,100);
+    text("Score: " + score, 2,12);
+    fill("white");
+    
     if(keyDown(RIGHT_ARROW) && player.position.x < (width-(playerImage.width/2))) {
     player.position.x  +=4;
     }
@@ -50,6 +53,10 @@ function draw() {
      drawSprites();
      
 }
+
+//function drawScore() {
+//    
+//}
 
 // function gameOver() {
 //     background(0);
