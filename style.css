@@ -1,8 +1,34 @@
-img {
-    width: 400px;
-    border: 50%;
+h1 {
+	text-align: center;
+	font-size: 56px;
 }
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 24px;
+	text-indent: 18px;
+}
+
+h4 {
+	text-align: center;
+}
+
 body {
-    text-align: center;
-    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 18px;
+    background-color: #6BD9FF;
+    font-family: Palatino;
 }
+
+ul {
+	font-size: 18px;
+}
+
+img {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
